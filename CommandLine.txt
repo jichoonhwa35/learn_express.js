@@ -1,0 +1,45 @@
+cd: change directory
+ls: list up 
+ls -a : list all (hiden file also )
+touch: make new file
+mkdir: make new directory
+rm: remove selected files or all
+rm -rf : (rf: recursive force) remove selected directory
+c9 : open a file 
+
+* Be carefully deal with the rm & rm -rf command line !!!
+
+
+npm init (npm initiation)
+* name
+* description
+* entry point: app.js
+* author
+
+npm  install express ejs --save (install package)
+npm install ejs express mongoose body-parser --save
+npm install passport passport-local passport-local-mongoose express-session --save
+npm install --save connect-flash
+npm install -g nodemon  equals to node app.js but do not need to open the server every time after closing 
+npm i -s moment / npm install --save moment     show the time 
+npm install locus: 
+npm i -S async nodemailer: related to password reset
+
+export GMAILPW= "email password" : used in console which send token to user email.
+
+npm i -S multer cloudinary : online cloud
+
+
+
+node app.js (start the server)
+
+array:
+[
+{name: "", image:"" },
+{name: "", image:"" },
+]
+
+# ejs code
+<%  %> 
+<%= %> 
+<%- %>

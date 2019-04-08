@@ -1,0 +1,34 @@
+
+<% include ../partials/header %>
+
+<div class="row justify-content-center">
+    <div class="col-md-12 text-center">
+        <h1> Create a New Diary </h1>
+    </div>
+    <div class="col-lg-4 col-xs-12">
+        <form action="/diaries" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name" >Name</label>
+                <input class="form-control" type="text" name="diary[name]" placeholder="Diary's Name">
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input class="form-control" type="text" name="diary[location]" placeholder="Location">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" type="text" placeholder="Description of the diary"></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+            </div>
+        </form>
+        <a href="/diaries">Go back </a>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

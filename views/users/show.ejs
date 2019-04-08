@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <h1 class="mb-5"><%=user.firstName%>'s Profile</h1>
+            <div class="caption mb-3">Password:<%=user.password%></a></div>
+            <div class="caption mb-3">FirstName:<%=user.firstName%></a></div>
+            <div class="caption mb-3">Lastname:<%=user.lastName%></a></div>
+            <div class="caption mb-3">Email:<a href="mialto:<%= user.email%>"><%=user.email%></a></div>
+            <div><a class="btn btn-warning mb-3" href="/users/<%=user._id %>/edit">Edit</a></div>
+            <div class="caption mb-5">
+                <form id="delete-form" action="/diaries/<%= user._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Delete</button>                     
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h3><%=user.firstName%>'s diaries</h3>
+        <ul>
+        <% diaries.forEach(function(diary){ %>
+            <li><a href="/diaries/<%=diary.id%>"><%= diary.name%></a></li>
+        <% }) %>
+        </ul>
+    </div>
+    
+</div>
+
+<% include ../partials/footer %>

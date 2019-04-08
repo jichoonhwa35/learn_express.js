@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+    <header class="jumbotron">
+        <div class= "container">
+            <h1 class="font-weight-bold text-white text-center"><span class="glyphicon glyphicon-tent"></span> Welcome to CHUNHUA's Journey Diareis! </h1>
+            <p class="font-weight-bold text-uppercase text-white text-center">View My World Trip Diaries - Remarkable Places</p>
+            <p class="text-center">
+               <a class="btn btn-primary btn-lg" href="/diaries/new"> Add New Diary </a> 
+            </p>
+        </div>
+    </header>
+    
+    <div class="row text-center"  id="diary-grid">
+            <div class="col-md-12">
+                <% if(noMatch !== undefined){ %>
+                <h3><%= noMatch %></h3>
+                <% } %>
+            </div>
+            <% diaries.forEach(function(diary){ %>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="<%= diary.image %>" class="card-img-top" alt="<%= diary.name %>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= diary.name %></h5>
+                        <a href="/diaries/<%=diary._id%>" class="btn btn-primary">More Info</a>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+<% include ../partials/footer %>

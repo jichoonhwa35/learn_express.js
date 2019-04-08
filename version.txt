@@ -1,0 +1,9 @@
+
+
+
+v11
+v12: Landing page +Time since created + user profile + password reset +  fuzzy search: noMatch undefined....
+v13: Image upload:  register problem 
+v14: Migrationn to Bootsstrap 4: register problem
+v15: In-app notification: not work.... app crash
+v16: based on v14

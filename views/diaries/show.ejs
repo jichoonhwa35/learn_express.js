@@ -1,0 +1,62 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div id="map"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="card mb-3">
+                <img src="<%= diary.image %>" class="card-img-top" alt="<%= diary.name %>">
+                <div class="card-body">
+                    <p class="float-right"><i><strong><%=diary.location %></strong></i></p>
+                    <h5 class="card-title"><%= diary.name %></h5>
+                    <p>
+                        <em>Submitted by: <a href="/users/<%=diary.author.id %>"><%= diary.author.username %></a>, 
+                        <%= moment(diary.createdAt).fromNow()%></em>
+                    </p>
+                    <hr>
+                    <pre><%= diary.description %></pre>
+                    
+                    <% if(currentUser && diary.author.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-warning" href="/diaries/<%=diary._id %>/edit">Edit</a>
+                        <form id="delete-form" action="/diaries/<%= diary._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>                     
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+            
+            <div class="card card-body">
+                <div class="text-right">
+                    <p><a class="btn btn-success" href="/diaries/<%=diary._id%>/comments/new">Add New Comment</a></p>
+                </div>
+                <hr>
+                <div class="row">
+                    <% diary.comments.forEach(function (comment){ %>
+                        <div class="col-md-12 mb-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="float-right"><%= moment(comment.createdAt).fromNow()%></p>
+                                    <p class="card-title"><strong><%= comment.author.username%></strong></p>
+                                    <p class="card-text"><%=comment.text%></p>
+                                    <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                                        <div class="float-right">
+                                            <a class="btn btn-sm btn-warning" 
+                                            href="/diaries/<%= diary._id %>/comments/<%= comment._id%>/edit">Edit</a>
+                                            <form id="delete-form" action="/diaries/<%= diary._id %>/comments/<%= comment._id%>?_method=DELETE" method="POST">
+                                                <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                                            </form>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

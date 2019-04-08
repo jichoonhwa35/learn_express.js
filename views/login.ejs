@@ -1,0 +1,27 @@
+<% include ./partials/header %>
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>Login</h1>     
+    </div>
+    <div class="col-md-12">
+        <form class="form-signin" action="/login" method="POST">
+            <h4>Please sign in</h4>
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required autofocus>
+            
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+            <a href="/forget">Forgot password?</a>
+            <div class="checkbox mt-3 text-center">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        </form>
+        <a href="/diaries">Go Back</a>
+    </div>
+</div>
+
+<% include ./partials/footer %>
